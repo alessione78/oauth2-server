@@ -27,13 +27,13 @@ abstract class AbstractTokenEntity
 
     /**
      * Associated session
-     * @var \League\OAuth2\Server\Entity\SessionEntity
+     * @var \League\OAuth2\Server\Entity\SessionInterface
      */
     protected $session;
 
     /**
      * Session scopes
-     * @var \League\OAuth2\Server\Entity\ScopeEntity[]
+     * @var \League\OAuth2\Server\Entity\ScopeInterface[]
      */
     protected $scopes;
 
@@ -66,7 +66,7 @@ abstract class AbstractTokenEntity
      * @param  \League\OAuth2\Server\Entity\SessionEntity $session
      * @return self
      */
-    public function setSession(SessionEntity $session)
+    public function setSession(SessionInterface $session)
     {
         $this->session = $session;
 
@@ -129,7 +129,7 @@ abstract class AbstractTokenEntity
      * @param  \League\OAuth2\Server\Entity\ScopeEntity $scope
      * @return self
      */
-    public function associateScope(ScopeEntity $scope)
+    public function associateScope(ScopeInterface $scope)
     {
         if (!isset($this->scopes[$scope->getId()])) {
             $this->scopes[$scope->getId()] = $scope;
